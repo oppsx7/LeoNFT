@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D42C034227C18FDE00896F99 /* MallentRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D42C034027C18FDE00896F99 /* MallentRegular.ttf */; };
+		D42C034327C18FDE00896F99 /* Best.otf in Resources */ = {isa = PBXBuildFile; fileRef = D42C034127C18FDE00896F99 /* Best.otf */; };
 		D47146BC27A6DAE6002A6E27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47146BB27A6DAE6002A6E27 /* ViewController.swift */; };
 		D47146BF27A6DAE6002A6E27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47146BD27A6DAE6002A6E27 /* Main.storyboard */; };
 		D47146C127A6DAE8002A6E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47146C027A6DAE8002A6E27 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D42C034027C18FDE00896F99 /* MallentRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MallentRegular.ttf; sourceTree = "<group>"; };
+		D42C034127C18FDE00896F99 /* Best.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Best.otf; sourceTree = "<group>"; };
 		D47146B427A6DAE6002A6E27 /* LeoNFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoNFT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47146BB27A6DAE6002A6E27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D47146BE27A6DAE6002A6E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +129,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D42C033F27C18FCD00896F99 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D42C034127C18FDE00896F99 /* Best.otf */,
+				D42C034027C18FDE00896F99 /* MallentRegular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		D47146AB27A6DAE6002A6E27 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +158,7 @@
 		D47146B627A6DAE6002A6E27 /* LeoNFT */ = {
 			isa = PBXGroup;
 			children = (
+				D42C033F27C18FCD00896F99 /* Fonts */,
 				D4CB5B3C27B1CB6200939653 /* AppDelegate.swift */,
 				D4CB5B3D27B1CB6200939653 /* SceneDelegate.swift */,
 				D47146D127A6DBC3002A6E27 /* Controller */,
@@ -279,8 +293,10 @@
 				D47146D927A6DBC3002A6E27 /* Utils in Resources */,
 				D47146D527A6DBC3002A6E27 /* ReadME.md in Resources */,
 				D47146CC27A6DBAB002A6E27 /* GoogleService-Info.plist in Resources */,
+				D42C034327C18FDE00896F99 /* Best.otf in Resources */,
 				D47146D627A6DBC3002A6E27 /* Model in Resources */,
 				D47146DA27A6DBC3002A6E27 /* View in Resources */,
+				D42C034227C18FDE00896F99 /* MallentRegular.ttf in Resources */,
 				D47146C127A6DAE8002A6E27 /* Assets.xcassets in Resources */,
 				D47146BF27A6DAE6002A6E27 /* Main.storyboard in Resources */,
 				D47146D827A6DBC3002A6E27 /* Controller in Resources */,

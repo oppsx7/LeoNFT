@@ -21,6 +21,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MallentRegular.ttf</string>
+		<string>Best.otf</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.todordimitrov.LeoNFT</string>
 </dict>

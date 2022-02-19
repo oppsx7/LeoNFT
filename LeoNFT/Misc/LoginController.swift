@@ -10,10 +10,13 @@ class LoginController: UIViewController {
     private var viewModel = LoginViewModel()
     weak var delegate: AuthenticationDelegate?
     
-    private let iconImage: UIImageView = {
-       let iv = UIImageView(image: UIImage(named: "Instagram_logo_white"))
-        iv.contentMode = .scaleAspectFill
-        return iv
+    private let titleLabel: UILabel = {
+       let il = UILabel()
+        il.text = "Leo NFT"
+        il.textColor = .white
+        il.font = UIFont(name: "MallentRegular", size: 40)
+        il.contentMode = .scaleAspectFill
+        return il
     }()
     
     private let emailTextField: UITextField = {
@@ -94,17 +97,17 @@ class LoginController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
         
-        view.addSubview(iconImage)
-        iconImage.centerX(inView: view)
-        iconImage.setDimensions(height: 80, width: 120)
-        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor,paddingTop: 32)
+        view.addSubview(titleLabel)
+        titleLabel.centerX(inView: view)
+        titleLabel.setDimensions(height: 80, width: 120)
+        titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor,paddingTop: 32)
         
         let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, forgotPasswordButton])
         stack.axis = .vertical
         stack.spacing = 20
         
         view.addSubview(stack)
-        stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+        stack.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
