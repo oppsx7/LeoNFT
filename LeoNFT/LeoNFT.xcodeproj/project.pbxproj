@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D42C034227C18FDE00896F99 /* MallentRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D42C034027C18FDE00896F99 /* MallentRegular.ttf */; };
 		D42C034327C18FDE00896F99 /* Best.otf in Resources */ = {isa = PBXBuildFile; fileRef = D42C034127C18FDE00896F99 /* Best.otf */; };
+		D42C037D27C6ECEB00896F99 /* NFTCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C037C27C6ECEB00896F99 /* NFTCollectionViewModel.swift */; };
+		D42C037F27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C037E27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift */; };
+		D42C038127C6EDC200896F99 /* NFTCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C038027C6EDC200896F99 /* NFTCollectionsViewController.swift */; };
+		D42C038327C6EE1C00896F99 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C038227C6EE1C00896F99 /* Types.swift */; };
 		D47146BC27A6DAE6002A6E27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47146BB27A6DAE6002A6E27 /* ViewController.swift */; };
 		D47146BF27A6DAE6002A6E27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47146BD27A6DAE6002A6E27 /* Main.storyboard */; };
 		D47146C127A6DAE8002A6E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47146C027A6DAE8002A6E27 /* Assets.xcassets */; };
@@ -59,6 +63,10 @@
 /* Begin PBXFileReference section */
 		D42C034027C18FDE00896F99 /* MallentRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MallentRegular.ttf; sourceTree = "<group>"; };
 		D42C034127C18FDE00896F99 /* Best.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Best.otf; sourceTree = "<group>"; };
+		D42C037C27C6ECEB00896F99 /* NFTCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollectionViewModel.swift; sourceTree = "<group>"; };
+		D42C037E27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollectionSingleViewController.swift; sourceTree = "<group>"; };
+		D42C038027C6EDC200896F99 /* NFTCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollectionsViewController.swift; sourceTree = "<group>"; };
+		D42C038227C6EE1C00896F99 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		D47146B427A6DAE6002A6E27 /* LeoNFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoNFT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47146BB27A6DAE6002A6E27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D47146BE27A6DAE6002A6E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,6 +147,8 @@
 				D4BB2DF227B1CDC200DB08E7 /* NotificationController.swift */,
 				D4BB2DF427B1CDC200DB08E7 /* ProfileController.swift */,
 				D4BB2DF527B1CDC200DB08E7 /* SearchController.swift */,
+				D42C037E27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift */,
+				D42C038027C6EDC200896F99 /* NFTCollectionsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -157,6 +167,7 @@
 				D4BB2E1527B1CDFA00DB08E7 /* AuthenticationViewModel.swift */,
 				D4BB2E1627B1CDFA00DB08E7 /* ProfileHeaderViewModel.swift */,
 				D4BB2E1427B1CDFA00DB08E7 /* UserCellViewModel.swift */,
+				D42C037C27C6ECEB00896F99 /* NFTCollectionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 			children = (
 				D4BB2E0527B1CDD900DB08E7 /* Constants.swift */,
 				D4BB2E0427B1CDD900DB08E7 /* Extensions.swift */,
+				D42C038227C6EE1C00896F99 /* Types.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -349,13 +361,16 @@
 				D4BB2E1727B1CDFA00DB08E7 /* UserCellViewModel.swift in Sources */,
 				D4BB2E1827B1CDFA00DB08E7 /* AuthenticationViewModel.swift in Sources */,
 				D4BB2E1927B1CDFA00DB08E7 /* ProfileHeaderViewModel.swift in Sources */,
+				D42C038327C6EE1C00896F99 /* Types.swift in Sources */,
 				D4BB2E1227B1CDEE00DB08E7 /* ProfileHeader.swift in Sources */,
 				D4BB2E1327B1CDEE00DB08E7 /* ProfileCell.swift in Sources */,
 				D4BB2E0C27B1CDE700DB08E7 /* AuthenticationButton.swift in Sources */,
+				D42C037D27C6ECEB00896F99 /* NFTCollectionViewModel.swift in Sources */,
 				D4BB2E0D27B1CDE700DB08E7 /* CustomTextField.swift in Sources */,
 				D4BB2E0E27B1CDE700DB08E7 /* UserCell.swift in Sources */,
 				D4BB2E0F27B1CDE700DB08E7 /* FeedCell.swift in Sources */,
 				D4BB2E0627B1CDD900DB08E7 /* Extensions.swift in Sources */,
+				D42C037F27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift in Sources */,
 				D4BB2E0727B1CDD900DB08E7 /* Constants.swift in Sources */,
 				D4BB2E0327B1CDD100DB08E7 /* User.swift in Sources */,
 				D4CB5B3E27B1CB6200939653 /* AppDelegate.swift in Sources */,
@@ -367,6 +382,7 @@
 				D4BB2E0027B1CDC800DB08E7 /* LoginController.swift in Sources */,
 				D4BB2E0127B1CDC800DB08E7 /* RegistrationController.swift in Sources */,
 				D4BB2DF827B1CDC200DB08E7 /* NotificationController.swift in Sources */,
+				D42C038127C6EDC200896F99 /* NFTCollectionsViewController.swift in Sources */,
 				D4BB2DF927B1CDC200DB08E7 /* FeedController.swift in Sources */,
 				D4BB2DFA27B1CDC200DB08E7 /* ProfileController.swift in Sources */,
 				D4BB2DFB27B1CDC200DB08E7 /* SearchController.swift in Sources */,
