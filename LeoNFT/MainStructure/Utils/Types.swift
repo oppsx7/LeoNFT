@@ -15,7 +15,12 @@ struct NFTCollectionsResponse: Codable {
 struct Collection: Codable {
     //this is a computed property in order to be automatically excluded from CodingKeys
     var favorite: Bool {
-        return false
+        get {
+            return false
+        }
+        set {
+            
+        }
     }
     let primary_asset_contracts: [PrimaryAssetContract]?
     let traits: Traits?

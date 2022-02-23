@@ -13,6 +13,7 @@
 		D42C037F27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C037E27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift */; };
 		D42C038127C6EDC200896F99 /* NFTCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C038027C6EDC200896F99 /* NFTCollectionsViewController.swift */; };
 		D42C038327C6EE1C00896F99 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C038227C6EE1C00896F99 /* Types.swift */; };
+		D42C038527C6EFEB00896F99 /* NFTCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C038427C6EFEB00896F99 /* NFTCollectionTableViewCell.swift */; };
 		D47146BC27A6DAE6002A6E27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47146BB27A6DAE6002A6E27 /* ViewController.swift */; };
 		D47146BF27A6DAE6002A6E27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47146BD27A6DAE6002A6E27 /* Main.storyboard */; };
 		D47146C127A6DAE8002A6E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47146C027A6DAE8002A6E27 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		D42C037E27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollectionSingleViewController.swift; sourceTree = "<group>"; };
 		D42C038027C6EDC200896F99 /* NFTCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollectionsViewController.swift; sourceTree = "<group>"; };
 		D42C038227C6EE1C00896F99 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		D42C038427C6EFEB00896F99 /* NFTCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		D47146B427A6DAE6002A6E27 /* LeoNFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoNFT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47146BB27A6DAE6002A6E27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D47146BE27A6DAE6002A6E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				D4BB2E0927B1CDE700DB08E7 /* CustomTextField.swift */,
 				D4BB2E0B27B1CDE700DB08E7 /* FeedCell.swift */,
 				D4BB2E0A27B1CDE700DB08E7 /* UserCell.swift */,
+				D42C038427C6EFEB00896F99 /* NFTCollectionTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				D4BB2E0727B1CDD900DB08E7 /* Constants.swift in Sources */,
 				D4BB2E0327B1CDD100DB08E7 /* User.swift in Sources */,
 				D4CB5B3E27B1CB6200939653 /* AppDelegate.swift in Sources */,
+				D42C038527C6EFEB00896F99 /* NFTCollectionTableViewCell.swift in Sources */,
 				D4CB5B3F27B1CB6200939653 /* SceneDelegate.swift in Sources */,
 				D47146BC27A6DAE6002A6E27 /* ViewController.swift in Sources */,
 				D4BB2DEF27B1CD9700DB08E7 /* AuthService.swift in Sources */,
