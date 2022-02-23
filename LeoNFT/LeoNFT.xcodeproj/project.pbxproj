@@ -14,12 +14,7 @@
 		D47146C127A6DAE8002A6E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47146C027A6DAE8002A6E27 /* Assets.xcassets */; };
 		D47146C427A6DAE8002A6E27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47146C227A6DAE8002A6E27 /* LaunchScreen.storyboard */; };
 		D47146CC27A6DBAB002A6E27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D47146CB27A6DBAB002A6E27 /* GoogleService-Info.plist */; };
-		D47146D427A6DBC3002A6E27 /* ViewModel in Resources */ = {isa = PBXBuildFile; fileRef = D47146CD27A6DBC3002A6E27 /* ViewModel */; };
 		D47146D527A6DBC3002A6E27 /* ReadME.md in Resources */ = {isa = PBXBuildFile; fileRef = D47146CE27A6DBC3002A6E27 /* ReadME.md */; };
-		D47146D627A6DBC3002A6E27 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = D47146CF27A6DBC3002A6E27 /* Model */; };
-		D47146D827A6DBC3002A6E27 /* Controller in Resources */ = {isa = PBXBuildFile; fileRef = D47146D127A6DBC3002A6E27 /* Controller */; };
-		D47146D927A6DBC3002A6E27 /* Utils in Resources */ = {isa = PBXBuildFile; fileRef = D47146D227A6DBC3002A6E27 /* Utils */; };
-		D47146DA27A6DBC3002A6E27 /* View in Resources */ = {isa = PBXBuildFile; fileRef = D47146D327A6DBC3002A6E27 /* View */; };
 		D4BB2DEF27B1CD9700DB08E7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BB2DEC27B1CD9600DB08E7 /* AuthService.swift */; };
 		D4BB2DF027B1CD9700DB08E7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BB2DED27B1CD9600DB08E7 /* UserService.swift */; };
 		D4BB2DF127B1CD9700DB08E7 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BB2DEE27B1CD9700DB08E7 /* ImageUploader.swift */; };
@@ -70,13 +65,8 @@
 		D47146C027A6DAE8002A6E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D47146C327A6DAE8002A6E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D47146C527A6DAE8002A6E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D47146CB27A6DBAB002A6E27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		D47146CD27A6DBC3002A6E27 /* ViewModel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModel; sourceTree = "<group>"; };
+		D47146CB27A6DBAB002A6E27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "LeoNFT/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D47146CE27A6DBC3002A6E27 /* ReadME.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadME.md; sourceTree = "<group>"; };
-		D47146CF27A6DBC3002A6E27 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
-		D47146D127A6DBC3002A6E27 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controller; sourceTree = "<group>"; };
-		D47146D227A6DBC3002A6E27 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utils; sourceTree = "<group>"; };
-		D47146D327A6DBC3002A6E27 /* View */ = {isa = PBXFileReference; lastKnownFileType = folder; path = View; sourceTree = "<group>"; };
 		D4BB2DEC27B1CD9600DB08E7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D4BB2DED27B1CD9600DB08E7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D4BB2DEE27B1CD9700DB08E7 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
@@ -138,11 +128,84 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		D42C037527C6EA1700896F99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D4BB2DFE27B1CDC800DB08E7 /* LoginController.swift */,
+				D4BB2DFF27B1CDC800DB08E7 /* RegistrationController.swift */,
+				D4BB2DF327B1CDC200DB08E7 /* FeedController.swift */,
+				D4BB2DF727B1CDC200DB08E7 /* ImageSelectorController.swift */,
+				D4BB2DF627B1CDC200DB08E7 /* MainTabController.swift */,
+				D4BB2DF227B1CDC200DB08E7 /* NotificationController.swift */,
+				D4BB2DF427B1CDC200DB08E7 /* ProfileController.swift */,
+				D4BB2DF527B1CDC200DB08E7 /* SearchController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D42C037627C6EAC100896F99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4BB2E0227B1CDD100DB08E7 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D42C037727C6EACE00896F99 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D4BB2E1527B1CDFA00DB08E7 /* AuthenticationViewModel.swift */,
+				D4BB2E1627B1CDFA00DB08E7 /* ProfileHeaderViewModel.swift */,
+				D4BB2E1427B1CDFA00DB08E7 /* UserCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D42C037827C6EAF900896F99 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D4BB2E0527B1CDD900DB08E7 /* Constants.swift */,
+				D4BB2E0427B1CDD900DB08E7 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D42C037927C6EAFF00896F99 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D4BB2DEC27B1CD9600DB08E7 /* AuthService.swift */,
+				D4BB2DEE27B1CD9700DB08E7 /* ImageUploader.swift */,
+				D4BB2DED27B1CD9600DB08E7 /* UserService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D42C037A27C6EB1400896F99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D42C037B27C6EB1D00896F99 /* Profile */,
+				D4BB2E0827B1CDE700DB08E7 /* AuthenticationButton.swift */,
+				D4BB2E0927B1CDE700DB08E7 /* CustomTextField.swift */,
+				D4BB2E0B27B1CDE700DB08E7 /* FeedCell.swift */,
+				D4BB2E0A27B1CDE700DB08E7 /* UserCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D42C037B27C6EB1D00896F99 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D4BB2E1127B1CDEE00DB08E7 /* ProfileCell.swift */,
+				D4BB2E1027B1CDEE00DB08E7 /* ProfileHeader.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		D47146AB27A6DAE6002A6E27 = {
 			isa = PBXGroup;
 			children = (
 				D47146B627A6DAE6002A6E27 /* LeoNFT */,
-				D4BB2E1B27B1CE2F00DB08E7 /* Misc */,
+				D4BB2E1B27B1CE2F00DB08E7 /* MainStructure */,
 				D47146B527A6DAE6002A6E27 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -158,53 +221,31 @@
 		D47146B627A6DAE6002A6E27 /* LeoNFT */ = {
 			isa = PBXGroup;
 			children = (
-				D42C033F27C18FCD00896F99 /* Fonts */,
-				D4CB5B3C27B1CB6200939653 /* AppDelegate.swift */,
-				D4CB5B3D27B1CB6200939653 /* SceneDelegate.swift */,
-				D47146D127A6DBC3002A6E27 /* Controller */,
-				D47146CF27A6DBC3002A6E27 /* Model */,
-				D47146CE27A6DBC3002A6E27 /* ReadME.md */,
-				D47146D227A6DBC3002A6E27 /* Utils */,
-				D47146D327A6DBC3002A6E27 /* View */,
-				D47146CD27A6DBC3002A6E27 /* ViewModel */,
 				D47146CB27A6DBAB002A6E27 /* GoogleService-Info.plist */,
-				D47146BB27A6DAE6002A6E27 /* ViewController.swift */,
-				D47146BD27A6DAE6002A6E27 /* Main.storyboard */,
-				D47146C027A6DAE8002A6E27 /* Assets.xcassets */,
-				D47146C227A6DAE8002A6E27 /* LaunchScreen.storyboard */,
 				D47146C527A6DAE8002A6E27 /* Info.plist */,
 			);
 			path = LeoNFT;
 			sourceTree = "<group>";
 		};
-		D4BB2E1B27B1CE2F00DB08E7 /* Misc */ = {
+		D4BB2E1B27B1CE2F00DB08E7 /* MainStructure */ = {
 			isa = PBXGroup;
 			children = (
-				D4BB2E1527B1CDFA00DB08E7 /* AuthenticationViewModel.swift */,
-				D4BB2E1627B1CDFA00DB08E7 /* ProfileHeaderViewModel.swift */,
-				D4BB2E1427B1CDFA00DB08E7 /* UserCellViewModel.swift */,
-				D4BB2E1127B1CDEE00DB08E7 /* ProfileCell.swift */,
-				D4BB2E1027B1CDEE00DB08E7 /* ProfileHeader.swift */,
-				D4BB2E0827B1CDE700DB08E7 /* AuthenticationButton.swift */,
-				D4BB2E0927B1CDE700DB08E7 /* CustomTextField.swift */,
-				D4BB2E0B27B1CDE700DB08E7 /* FeedCell.swift */,
-				D4BB2E0A27B1CDE700DB08E7 /* UserCell.swift */,
-				D4BB2E0527B1CDD900DB08E7 /* Constants.swift */,
-				D4BB2E0427B1CDD900DB08E7 /* Extensions.swift */,
-				D4BB2E0227B1CDD100DB08E7 /* User.swift */,
-				D4BB2DFE27B1CDC800DB08E7 /* LoginController.swift */,
-				D4BB2DFF27B1CDC800DB08E7 /* RegistrationController.swift */,
-				D4BB2DF327B1CDC200DB08E7 /* FeedController.swift */,
-				D4BB2DF727B1CDC200DB08E7 /* ImageSelectorController.swift */,
-				D4BB2DF627B1CDC200DB08E7 /* MainTabController.swift */,
-				D4BB2DF227B1CDC200DB08E7 /* NotificationController.swift */,
-				D4BB2DF427B1CDC200DB08E7 /* ProfileController.swift */,
-				D4BB2DF527B1CDC200DB08E7 /* SearchController.swift */,
-				D4BB2DEC27B1CD9600DB08E7 /* AuthService.swift */,
-				D4BB2DEE27B1CD9700DB08E7 /* ImageUploader.swift */,
-				D4BB2DED27B1CD9600DB08E7 /* UserService.swift */,
+				D47146CE27A6DBC3002A6E27 /* ReadME.md */,
+				D4CB5B3C27B1CB6200939653 /* AppDelegate.swift */,
+				D4CB5B3D27B1CB6200939653 /* SceneDelegate.swift */,
+				D47146BB27A6DAE6002A6E27 /* ViewController.swift */,
+				D47146BD27A6DAE6002A6E27 /* Main.storyboard */,
+				D47146C027A6DAE8002A6E27 /* Assets.xcassets */,
+				D47146C227A6DAE8002A6E27 /* LaunchScreen.storyboard */,
+				D42C037927C6EAFF00896F99 /* API */,
+				D42C037527C6EA1700896F99 /* Controller */,
+				D42C033F27C18FCD00896F99 /* Fonts */,
+				D42C037627C6EAC100896F99 /* Model */,
+				D42C037827C6EAF900896F99 /* Utils */,
+				D42C037A27C6EB1400896F99 /* View */,
+				D42C037727C6EACE00896F99 /* ViewModel */,
 			);
-			path = Misc;
+			path = MainStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,18 +329,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D47146D427A6DBC3002A6E27 /* ViewModel in Resources */,
 				D47146C427A6DAE8002A6E27 /* LaunchScreen.storyboard in Resources */,
-				D47146D927A6DBC3002A6E27 /* Utils in Resources */,
 				D47146D527A6DBC3002A6E27 /* ReadME.md in Resources */,
 				D47146CC27A6DBAB002A6E27 /* GoogleService-Info.plist in Resources */,
 				D42C034327C18FDE00896F99 /* Best.otf in Resources */,
-				D47146D627A6DBC3002A6E27 /* Model in Resources */,
-				D47146DA27A6DBC3002A6E27 /* View in Resources */,
 				D42C034227C18FDE00896F99 /* MallentRegular.ttf in Resources */,
 				D47146C127A6DAE8002A6E27 /* Assets.xcassets in Resources */,
 				D47146BF27A6DAE6002A6E27 /* Main.storyboard in Resources */,
-				D47146D827A6DBC3002A6E27 /* Controller in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
