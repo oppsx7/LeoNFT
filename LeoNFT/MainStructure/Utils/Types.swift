@@ -74,4 +74,142 @@ struct PrimaryAssetContract: Codable {
 struct Traits: Codable {
 }
 
+struct NFTAssetsResponse: Codable {
+    var next: String?
+    var previous: String?
+    var assets: [NFTAsset]?
+}
+
+class NFTAsset: Codable {
+    var favorite: Bool {
+        get {
+            return false
+        }
+        
+        set {
+            
+        }
+    }
+    var id: Int? = 0
+    var background_color: String? = ""
+    var image_url: String? = DEFAULT_URL
+    var image_preview_url: String? = DEFAULT_URL
+    var image_thumbnail_url: String? = DEFAULT_URL
+    var image_original_url: String? = DEFAULT_URL
+    var name: String? = ""
+    var description: String? = ""
+    var external_link: String? = ""
+    var asset_contract: AssetContract = AssetContract()
+    var permalink: String = ""
+//    var owner: Creator
+//    var creator: Creator
+//    var last_sale: LastSale = LastSale()
+    var highest_buyer_commitment: String? = ""
+    var token_id: String? = ""
+}
+
+class NFTAssetInfo: Codable {
+    var last_sale: LastSale = LastSale()
+    var id: Int? = 0
+    var background_color: String? = ""
+    var image_url: String? = DEFAULT_URL
+    var image_preview_url: String? = DEFAULT_URL
+    var image_thumbnail_url: String? = DEFAULT_URL
+    var image_original_url: String? = DEFAULT_URL
+    var name: String? = ""
+    var description: String? = ""
+    var external_link: String? = ""
+    var permalink: String = ""
+//    var owner: Creator
+//    var creator: Creator
+//    var last_sale: LastSale = LastSale()
+    var highest_buyer_commitment: String? = ""
+    var token_id: String? = ""
+}
+
+// MARK: - AssetContract
+struct AssetContract: Codable {
+    var address: String? = ""
+    var name: String? = ""
+    var owner: Int? = 0
+    var symbol: String? = ""
+    var description: String? = ""
+    var image_url: String? = ""
+    var payout_address: String? = ""
+}
+
+//
+//// MARK: - PaymentTokenElement
+//struct PaymentTokenElement: Codable {
+//    let id: Int
+//    let symbol: String?
+//    let address: String
+//    let image_url: String
+//    let name: String?
+//    let decimals: Int
+//    let ethPrice: Int?
+//    let usdPrice: Double?
+//}
+
+//// MARK: - Creator
+//struct Creator: Codable {
+//    let profile_img_url: String
+//    let address, config: String
+//}
+
+
+// MARK: - LastSale
+struct LastSale: Codable {
+    var asset: Asset = Asset()
+    var asset_bundle: String? = ""
+    var event_type: String? = ""
+    var event_timestamp: String? = ""
+    var auction_type: String? = ""
+    var total_price: String? = ""
+    var payment_token: LastSalePaymentToken = LastSalePaymentToken()
+//    var transaction: Transaction
+    var createdDate: String? = ""
+    var quantity: String? = ""
+}
+
+// MARK: - Asset
+struct Asset: Codable {
+    var decimals: Int? = 0
+    var token_id: String? = ""
+}
+
+// MARK: - LastSalePaymentToken
+struct LastSalePaymentToken: Codable {
+    var id: Int? = 0
+    var symbol: String? = ""
+    var address: String? = ""
+    var image_url: String? = ""
+    var name: String? = ""
+    var decimals: Int? = 0
+    var eth_price: Double? = 0
+    var usd_price: Double? = 0
+}
+
+//// MARK: - Transaction
+//struct Transaction: Codable {
+//    let block_hash, block_number: String
+//    let from_account: Creator
+//    let id: Int
+//    let timestamp: String
+//    let to_account: Creator
+//    let transaction_hash, transaction_index: String
+//}
+//
+//// MARK: - TopOwnership
+//struct TopOwnership: Codable {
+//    let owner: Creator
+//    let quantity: String
+//}
+
+// MARK: - Trait
+struct Trait: Codable {
+    let trait_type, value: String
+    let trait_count: Int
+}
+
 
