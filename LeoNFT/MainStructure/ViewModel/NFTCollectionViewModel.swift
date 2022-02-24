@@ -27,13 +27,13 @@ struct NFTCollectionViewModel {
 
     func collectionTotalSupply() -> String { getTotalSupplyText() }
 
-    func collectionTotalSupplyCount() -> Int { Int(collection.stats?["total_supply"] ?? 0) }
+    func collectionTotalSupplyCount() -> Int { Int((collection.stats?["total_supply"] ?? 0) ?? 0) }
 
-    func numberOfOwners() -> Int { Int(collection.stats?["num_owners"] ?? 0)}
+    func numberOfOwners() -> Int { Int((collection.stats?["num_owners"] ?? 0) ?? 0)}
 
-    func floorPrice() -> Double { collection.stats?["floor_price"] ?? 0.0}
+    func floorPrice() -> Double { (collection.stats?["floor_price"] ?? 0.0) ?? 0}
 
-    func totalVolumeTraded() -> Double { collection.stats?["total_volume"] ?? 0.0 }
+    func totalVolumeTraded() -> Double { (collection.stats?["total_volume"] ?? 0.0) ?? 0 }
 
     func collectionContractAddress(for index: Int) -> PrimaryAssetContract? { collection.primary_asset_contracts?[index]}
 
@@ -53,8 +53,8 @@ struct NFTCollectionViewModel {
     }
 
     private func getTotalSupplyText() -> String {
-        let itemString = Int(collection.stats?["total_supply"] ?? 0) == 1 ? " item" : " items"
-        return String(Int(collection.stats?["total_supply"] ?? 0)) + itemString
+        let itemString = Int((collection.stats?["total_supply"] ?? 0) ?? 0) == 1 ? " item" : " items"
+        return String(Int((collection.stats?["total_supply"] ?? 0) ?? 0)) + itemString
     }
 }
 
