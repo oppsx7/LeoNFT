@@ -1,14 +1,13 @@
 import Foundation
 import UIKit
 
-private let reuseIdentifier = "UserCell"
+private let reuseIdentifier = "NFTCollectionTableViewCell"
 
 class SearchController: UITableViewController {
     
     //MARK: - Properties
-    
-    private var users = [User]()
-    private var filteredUsers = [User]()
+    private var collectionsVM: NFTCollectionsViewModel!
+    private var filteredCollections = [Collection]()
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var inSearchMode: Bool {
@@ -20,8 +19,11 @@ class SearchController: UITableViewController {
         super.viewDidLoad()
         
         configureTableView()
-        fetchUsers()
         configureSearchController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchCollections()
     }
     
     //MARK: - Helpers
@@ -29,7 +31,7 @@ class SearchController: UITableViewController {
     func configureTableView() {
         view.backgroundColor = .white
         
-        tableView.register(UserCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(NFTCollectionTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 64
         
     }
@@ -44,10 +46,17 @@ class SearchController: UITableViewController {
     }
     
     //MARK: - API
-    func fetchUsers() {
-        UserService.fetchUsers { users in
-            self.users = users
-            self.tableView.reloadData()
+    func fetchCollections() {
+        NFTService.fetchCollections { collections in
+            
+            self.collectionsVM = NFTCollectionsViewModel(collections: collections.filter({$0.banner_image_url != nil}))
+            collections.forEach({ collection in
+                self.collectionsVM.collectionSlugs.append(collection.slug ?? "")
+            })
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            print("Collections count: \(self.collectionsVM.numberOfCollections())")
         }
     }
 }
@@ -56,22 +65,29 @@ class SearchController: UITableViewController {
 extension SearchController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return inSearchMode ? filteredUsers.count : users.count
+        guard collectionsVM != nil else { return 0 }
+        return inSearchMode ? filteredCollections.count : collectionsVM.numberOfCollections()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UserCell
-        let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
-        cell.viewModel = UserCellViewModel(user: user)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NFTCollectionTableViewCell
+        let collection = inSearchMode ? filteredCollections[indexPath.row] : collectionsVM.collectionAtIndex(indexPath.row)
+        cell.configure(NFTCollectionViewModel(collection: collection))
         return cell
     }
 }
 
 extension SearchController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
-        let controller = ProfileController(user: user)
-        navigationController?.pushViewController(controller, animated: true)
+        let collection = inSearchMode ? filteredCollections[indexPath.row] : collectionsVM.collectionAtIndex(indexPath.row)
+        //MARK: TODO
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NFTCollectionSingleViewController") as! NFTCollectionSingleViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        vc.collectionVM = NFTCollectionViewModel(collection: collection)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
 }
 
@@ -79,12 +95,28 @@ extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
         
-        filteredUsers = users.filter({
-            $0.username.contains(searchText) ||
-            $0.fullname.lowercased().contains(searchText)
-        })
+        //MARK: TODO
+        
+        if collectionsVM.collections.filter({ ($0.name?.lowercased().contains(searchText.lowercased()))!}).count != 0 {            filteredCollections = collectionsVM.collections.filter({ ($0.name?.lowercased().contains(searchText.lowercased()))!})
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.collectionsVM.collectionSlugs.forEach { slug in
+                    if slug.lowercased().contains(searchText.lowercased()) {
+                        NFTService.getSingleCollection(slug) { collection in
+                            if let collection = collection {
+                                self.filteredCollections.removeAll()
+                                self.filteredCollections.append(collection)
+                            }
+                            
+                        }
+                    }
+                }
+                
+            }
+            
+        }
          
-        print("DEBUG: Filtered users \(filteredUsers)")
+        print("DEBUG: Filtered collections \(filteredCollections)")
         self.tableView.reloadData()
     }
 }

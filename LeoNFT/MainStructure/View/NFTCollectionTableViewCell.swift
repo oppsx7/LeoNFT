@@ -8,27 +8,63 @@
 import UIKit
 
 class NFTCollectionTableViewCell: UITableViewCell {
-    @IBOutlet weak var collectionIcon: UIImageView!
-    @IBOutlet weak var collectionTitle: UILabel!
-    @IBOutlet weak var blockchainSign: UIImageView!
-    @IBOutlet weak var itemNumberText: UILabel!
+    //MARK: - Properties
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var viewModel: NFTCollectionViewModel?
+    
+    
+    private let collectionIcon: UIImageView =  {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        iv.backgroundColor = .lightGray
+        iv.image = UIImage(named: "venom-7")
+        return iv
+    }()
+    
+    private let collectionTitle: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.text = "venom"
+        return label
+    }()
+    
+    private let itemNumberText: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.text = "Eddie Brock"
+        label.textColor = .lightGray
+        return label
+    }()
+    
+    //MARK: - Lifecycle
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(collectionIcon)
+        collectionIcon.setDimensions(height: 48, width: 48)
+        collectionIcon.layer.cornerRadius = 48 / 2
+        collectionIcon.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
+        
+        let stack = UIStackView(arrangedSubviews: [collectionTitle, itemNumberText])
+        stack.axis = .vertical
+        stack.spacing = 4
+        stack.alignment = .leading
+        addSubview(stack)
+        stack.centerY(inView: collectionIcon, leftAnchor: collectionIcon.rightAnchor, paddingLeft: 8)
     }
     
-    func setup(_ collectionVM: NFTCollectionViewModel) {
-        let url = URL(string: (collectionVM.collectionImageURL()))!
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Helpers
+    
+    func configure(_ viewModel: NFTCollectionViewModel) {
+        let url = URL(string: (viewModel.collectionImageURL()))!
         collectionIcon.sd_setImage(with: url)
-        collectionTitle.text = collectionVM.collectionName()
-        itemNumberText.text = collectionVM.collectionTotalSupply()
+        collectionTitle.text = viewModel.collectionName()
+        itemNumberText.text = viewModel.collectionTotalSupply()
     }
 
 }
