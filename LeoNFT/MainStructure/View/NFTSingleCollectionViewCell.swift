@@ -32,7 +32,7 @@ class NFTSingleCollectionViewCell: UICollectionViewCell {
                 
             }
         } else {
-            let url = URL(string: assetVM.nftAsset.image_url!)!
+            let url = URL(string: assetVM.getImageURL())!
             self.assetIV.sd_setImage(with: url)
             self.assetName.text = assetVM.assetName()
             self.assetPrice.text = "Price: \(assetVM.nftPrice()) ETH"
