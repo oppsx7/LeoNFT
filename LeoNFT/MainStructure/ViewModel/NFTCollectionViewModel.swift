@@ -11,7 +11,7 @@ import CoreAudio
 struct NFTCollectionViewModel {
     var collection: Collection
     var collectionAssets: [NFTAsset]
-
+    
     init(collection: Collection) {
         self.collection = collection
         self.collectionAssets = []

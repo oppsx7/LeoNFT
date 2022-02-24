@@ -21,14 +21,14 @@ class NFTCollectionTableViewCell: UITableViewCell {
         iv.image = UIImage(named: "venom-7")
         return iv
     }()
-
+    
     private let collectionTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.text = "venom"
         return label
     }()
-
+    
     private let itemNumberText: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -45,7 +45,7 @@ class NFTCollectionTableViewCell: UITableViewCell {
         collectionIcon.setDimensions(height: 48, width: 48)
         collectionIcon.layer.cornerRadius = 48 / 2
         collectionIcon.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
-
+        
         let stack = UIStackView(arrangedSubviews: [collectionTitle, itemNumberText])
         stack.axis = .vertical
         stack.spacing = 4
