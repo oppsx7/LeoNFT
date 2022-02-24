@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52D044227C7FE460047F3E5 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D044127C7FE460047F3E5 /* NewsService.swift */; };
+		B52D044427C7FE890047F3E5 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D044327C7FE890047F3E5 /* NewsModel.swift */; };
+		B52D044627C7FED10047F3E5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D044527C7FED10047F3E5 /* NewsViewController.swift */; };
+		B52D044827C800330047F3E5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D044727C800330047F3E5 /* DetailsViewController.swift */; };
+		B52D044A27C800800047F3E5 /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D044927C800800047F3E5 /* NewsViewCell.swift */; };
+		B52D044C27C803110047F3E5 /* NewsStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52D044B27C803110047F3E5 /* NewsStoryBoard.storyboard */; };
 		D42C034227C18FDE00896F99 /* MallentRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D42C034027C18FDE00896F99 /* MallentRegular.ttf */; };
 		D42C034327C18FDE00896F99 /* Best.otf in Resources */ = {isa = PBXBuildFile; fileRef = D42C034127C18FDE00896F99 /* Best.otf */; };
 		D42C037D27C6ECEB00896F99 /* NFTCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C037C27C6ECEB00896F99 /* NFTCollectionViewModel.swift */; };
@@ -62,6 +68,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B52D044127C7FE460047F3E5 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		B52D044327C7FE890047F3E5 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		B52D044527C7FED10047F3E5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		B52D044727C800330047F3E5 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		B52D044927C800800047F3E5 /* NewsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
+		B52D044B27C803110047F3E5 /* NewsStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsStoryBoard.storyboard; sourceTree = "<group>"; };
 		D42C034027C18FDE00896F99 /* MallentRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MallentRegular.ttf; sourceTree = "<group>"; };
 		D42C034127C18FDE00896F99 /* Best.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Best.otf; sourceTree = "<group>"; };
 		D42C037C27C6ECEB00896F99 /* NFTCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -151,6 +163,8 @@
 				D4BB2DF527B1CDC200DB08E7 /* SearchController.swift */,
 				D42C037E27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift */,
 				D42C038027C6EDC200896F99 /* NFTCollectionsViewController.swift */,
+				B52D044527C7FED10047F3E5 /* NewsViewController.swift */,
+				B52D044727C800330047F3E5 /* DetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -159,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				D4BB2E0227B1CDD100DB08E7 /* User.swift */,
+				B52D044327C7FE890047F3E5 /* NewsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +205,7 @@
 				D4BB2DEC27B1CD9600DB08E7 /* AuthService.swift */,
 				D4BB2DEE27B1CD9700DB08E7 /* ImageUploader.swift */,
 				D4BB2DED27B1CD9600DB08E7 /* UserService.swift */,
+				B52D044127C7FE460047F3E5 /* NewsService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -203,6 +219,7 @@
 				D4BB2E0B27B1CDE700DB08E7 /* FeedCell.swift */,
 				D4BB2E0A27B1CDE700DB08E7 /* UserCell.swift */,
 				D42C038427C6EFEB00896F99 /* NFTCollectionTableViewCell.swift */,
+				B52D044927C800800047F3E5 /* NewsViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -259,6 +276,7 @@
 				D42C037827C6EAF900896F99 /* Utils */,
 				D42C037A27C6EB1400896F99 /* View */,
 				D42C037727C6EACE00896F99 /* ViewModel */,
+				B52D044B27C803110047F3E5 /* NewsStoryBoard.storyboard */,
 			);
 			path = MainStructure;
 			sourceTree = "<group>";
@@ -350,6 +368,7 @@
 				D42C034327C18FDE00896F99 /* Best.otf in Resources */,
 				D42C034227C18FDE00896F99 /* MallentRegular.ttf in Resources */,
 				D47146C127A6DAE8002A6E27 /* Assets.xcassets in Resources */,
+				B52D044C27C803110047F3E5 /* NewsStoryBoard.storyboard in Resources */,
 				D47146BF27A6DAE6002A6E27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,8 +384,10 @@
 				D4BB2E1827B1CDFA00DB08E7 /* AuthenticationViewModel.swift in Sources */,
 				D4BB2E1927B1CDFA00DB08E7 /* ProfileHeaderViewModel.swift in Sources */,
 				D42C038327C6EE1C00896F99 /* Types.swift in Sources */,
+				B52D044827C800330047F3E5 /* DetailsViewController.swift in Sources */,
 				D4BB2E1227B1CDEE00DB08E7 /* ProfileHeader.swift in Sources */,
 				D4BB2E1327B1CDEE00DB08E7 /* ProfileCell.swift in Sources */,
+				B52D044427C7FE890047F3E5 /* NewsModel.swift in Sources */,
 				D4BB2E0C27B1CDE700DB08E7 /* AuthenticationButton.swift in Sources */,
 				D42C037D27C6ECEB00896F99 /* NFTCollectionViewModel.swift in Sources */,
 				D4BB2E0D27B1CDE700DB08E7 /* CustomTextField.swift in Sources */,
@@ -380,6 +401,7 @@
 				D42C038527C6EFEB00896F99 /* NFTCollectionTableViewCell.swift in Sources */,
 				D4CB5B3F27B1CB6200939653 /* SceneDelegate.swift in Sources */,
 				D47146BC27A6DAE6002A6E27 /* ViewController.swift in Sources */,
+				B52D044A27C800800047F3E5 /* NewsViewCell.swift in Sources */,
 				D4BB2DEF27B1CD9700DB08E7 /* AuthService.swift in Sources */,
 				D4BB2DF027B1CD9700DB08E7 /* UserService.swift in Sources */,
 				D4BB2DF127B1CD9700DB08E7 /* ImageUploader.swift in Sources */,
@@ -387,7 +409,9 @@
 				D4BB2E0127B1CDC800DB08E7 /* RegistrationController.swift in Sources */,
 				D4BB2DF827B1CDC200DB08E7 /* NotificationController.swift in Sources */,
 				D42C038127C6EDC200896F99 /* NFTCollectionsViewController.swift in Sources */,
+				B52D044227C7FE460047F3E5 /* NewsService.swift in Sources */,
 				D4BB2DF927B1CDC200DB08E7 /* FeedController.swift in Sources */,
+				B52D044627C7FED10047F3E5 /* NewsViewController.swift in Sources */,
 				D4BB2DFA27B1CDC200DB08E7 /* ProfileController.swift in Sources */,
 				D4BB2DFB27B1CDC200DB08E7 /* SearchController.swift in Sources */,
 				D4BB2DFC27B1CDC200DB08E7 /* MainTabController.swift in Sources */,
