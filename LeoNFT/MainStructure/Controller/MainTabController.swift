@@ -53,7 +53,9 @@ class MainTabController: UITabBarController {
         self.tabBar.backgroundColor = .white
         
         let layout = UICollectionViewFlowLayout()
-        let feed = templateNavigationController(unselectedImage: UIImage(named: "home_unselected")!, selectedImage: UIImage(named: "home_selected")!, rootViewController: FeedController(collectionViewLayout: layout))
+        let sb = UIStoryboard(name: "NewsStoryBoard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "NewsViewController")
+        let feed = templateNavigationController(unselectedImage: UIImage(named: "home_unselected")!, selectedImage: UIImage(named: "home_selected")!, rootViewController: vc)
         let search = templateNavigationController(unselectedImage: UIImage(named: "search_unselected")!, selectedImage: UIImage(named: "search_selected")!, rootViewController: NFTCollectionsViewController())
         let imageSelector = templateNavigationController(unselectedImage: UIImage(named: "plus_unselected")!, selectedImage: UIImage(named: "plus_unselected")!, rootViewController: ImageSelectorController())
         let notifications = templateNavigationController(unselectedImage: UIImage(named: "like_unselected")!, selectedImage: UIImage(named: "like_selected")!, rootViewController: NotificationController())
