@@ -63,4 +63,22 @@ struct UserService {
             }
         }
     }
+
+    static func updateCurrentUserUsername(newUsername: String,
+                                          completion: @escaping ((Result<Void, Error>) -> Void)) {
+        guard let currentUserUUID = Auth.auth().currentUser?.uid else {
+            completion(.failure(MockError()))
+            return
+        }
+        COLLECTION_USERS.document(currentUserUUID).updateData(["username": newUsername],
+                                                              completion: { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        })
+    }
 }
+
+final class MockError: Error {}
