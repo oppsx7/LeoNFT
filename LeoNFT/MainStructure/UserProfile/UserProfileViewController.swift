@@ -14,6 +14,7 @@ private let headerIdentifier = "ProfileHeader"
 protocol UserProfileViewInput: HasLoadingState {
     func updateView(user: User, favoritedCollectionString: String)
     func showEditProfileModal()
+    func showTextInput()
 }
 
 protocol UserProfileViewOutput: AnyObject {
@@ -21,6 +22,7 @@ protocol UserProfileViewOutput: AnyObject {
     func didTapEditProfile()
     func didSelectEditUsername()
     func didSelectChangeProfilePickture()
+    func didEnterNewUsername(newUsername: String)
 }
 
 final class UserProfileViewController: UIViewController {
@@ -139,9 +141,33 @@ extension UserProfileViewController: UserProfileViewInput {
                                                  handler: { [weak output] _ in
             output?.didSelectChangeProfilePickture()
         })
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default,
+                                         handler: { _ in })
         actionSheet.addAction(changeUsernameAction)
         actionSheet.addAction(changeProfilePicture)
+        actionSheet.addAction(cancelAction)
         present(actionSheet,
+                animated: true)
+    }
+
+    func showTextInput() {
+        let alert = UIAlertController(title: "Enter new username",
+                                      message: nil,
+                                      preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "New username"
+        })
+        alert.addAction(.init(title: "Confirm",
+                              style: .default,
+                              handler: { [weak output] _ in
+                                  let textField = alert.textFields![0]
+                                  output?.didEnterNewUsername(newUsername: textField.text ?? "")
+                              }))
+        alert.addAction(.init(title: "Cancel",
+                              style: .default,
+                              handler: { _ in }))
+        present(alert,
                 animated: true)
     }
 }

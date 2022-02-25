@@ -10,10 +10,13 @@ import CoreData
 
 protocol UserProfileInteractorInput {
     func loadUserInfo()
+    func updateUsername(newUsername: String)
 }
 
 protocol UserProfileInteractorOutput: AnyObject {
     func didLoadUserInfo(user: User, favoritedCollections: Int)
+    func didUpdateUsername()
+    func didFailUpdatingUsername()
 }
 
 final class UserProfileInteractor {
@@ -43,17 +46,36 @@ extension UserProfileInteractor: UserProfileInteractorInput {
             }
         })
     }
+
+    func updateUsername(newUsername: String) {
+        webService.updateUsername(newUsername: newUsername,
+                                  completion: { [weak output] result in
+            switch result {
+            case .success:
+                output?.didUpdateUsername()
+            case .failure(let error):
+                // errorhandling, but no
+                output?.didFailUpdatingUsername()
+            }
+        })
+    }
 }
 
 // Move to new file
 protocol UserProfileWebServiceProtocol {
     func getCurrentUserStats(completion: @escaping ((User) -> Void))
+    func updateUsername(newUsername: String,
+                        completion: @escaping ((Result<Void, Error>) -> Void))
 }
 
 final class UserProfileWebService: UserProfileWebServiceProtocol {
     func getCurrentUserStats(completion: @escaping (User) -> Void) {
-        UserService.fetchUser(completion: { user in
-            completion(user)
-        })
+        UserService.fetchUser(completion: completion)
+    }
+
+    func updateUsername(newUsername: String,
+                        completion: @escaping ((Result<Void, Error>) -> Void)) {
+        UserService.updateCurrentUserUsername(newUsername: newUsername,
+                                              completion: completion)
     }
 }

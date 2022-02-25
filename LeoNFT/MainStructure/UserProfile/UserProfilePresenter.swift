@@ -31,11 +31,16 @@ extension UserProfilePresenter: UserProfileViewOutput {
     }
 
     func didSelectEditUsername() {
-        // no implementation
+        view.showTextInput()
     }
 
     func didSelectChangeProfilePickture() {
         // no implementation
+    }
+
+    func didEnterNewUsername(newUsername: String) {
+        view.stopLoadingIndicator()
+        interactor.updateUsername(newUsername: newUsername)
     }
 }
 
@@ -48,5 +53,14 @@ extension UserProfilePresenter: UserProfileInteractorOutput {
         let collectionString = favoritedCollections == 1 ? "1 favorited collection" : "\(favoritedCollections) favorited collections"
         view.updateView(user: user,
                         favoritedCollectionString: collectionString)
+    }
+
+    func didUpdateUsername() {
+        interactor.loadUserInfo() // making sure that everying is fresh
+    }
+
+    func didFailUpdatingUsername() {
+        view.stopLoadingIndicator()
+        // appropriate handling
     }
 }
