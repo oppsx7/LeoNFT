@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         setProgressProperties()
+
         return true
     }
 
@@ -44,10 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try? context.save()
         }
     }
-    
+
     private func setProgressProperties() {
         IHProgressHUD.set(defaultMaskType: IHProgressHUDMaskType.black)
         IHProgressHUD.set(defaultAnimationType: .native)
     }
 }
-

@@ -43,6 +43,5 @@ extension UIViewController: HasLoadingState {
 
     func stopLoadingIndicator() {
         view.stopLoadingIndicator()
-        Utils.hideProgress()
     }
 }
