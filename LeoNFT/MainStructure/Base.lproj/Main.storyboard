@@ -266,7 +266,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YY-Px-8Lf">
-                                <rect key="frame" x="7" y="44" width="50" height="45"/>
+                                <rect key="frame" x="0.0" y="44" width="50" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Qnm-7Y-fgQ"/>
                                     <constraint firstAttribute="width" constant="50" id="fgS-az-ofa"/>
@@ -291,10 +291,11 @@
                             <constraint firstItem="h5o-mR-G0T" firstAttribute="leading" secondItem="NLG-EZ-eQE" secondAttribute="trailing" constant="87" id="eRS-SD-X21"/>
                             <constraint firstItem="4O9-LV-jEU" firstAttribute="top" secondItem="iJ9-9p-SgG" secondAttribute="bottom" constant="88" id="eXU-dM-Snx"/>
                             <constraint firstItem="UpQ-YS-Ch3" firstAttribute="leading" secondItem="iJ9-9p-SgG" secondAttribute="leading" id="fJA-Wo-Dfb"/>
+                            <constraint firstItem="4YY-Px-8Lf" firstAttribute="centerY" secondItem="h5o-mR-G0T" secondAttribute="centerY" id="g3O-s6-CaG"/>
                             <constraint firstItem="UpQ-YS-Ch3" firstAttribute="trailing" secondItem="syb-nN-Bmn" secondAttribute="trailingMargin" id="kzW-Bq-b6A"/>
                             <constraint firstItem="4YY-Px-8Lf" firstAttribute="baseline" secondItem="h5o-mR-G0T" secondAttribute="baseline" id="loJ-Af-Qre"/>
                             <constraint firstAttribute="bottomMargin" secondItem="4O9-LV-jEU" secondAttribute="bottom" constant="-10" id="pUN-Xo-C1I"/>
-                            <constraint firstItem="4YY-Px-8Lf" firstAttribute="leading" secondItem="0tv-8I-rdN" secondAttribute="leading" constant="7" id="sJs-zb-lGS"/>
+                            <constraint firstItem="4YY-Px-8Lf" firstAttribute="leading" secondItem="0tv-8I-rdN" secondAttribute="leading" id="sJs-zb-lGS"/>
                             <constraint firstItem="h5o-mR-G0T" firstAttribute="trailing" secondItem="UpQ-YS-Ch3" secondAttribute="trailing" id="t7y-yf-99o"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iJ9-9p-SgG" secondAttribute="trailing" constant="-25" id="uSv-f0-Wlh"/>
                             <constraint firstItem="NLG-EZ-eQE" firstAttribute="centerX" secondItem="UpQ-YS-Ch3" secondAttribute="centerX" id="vPO-Hj-LaE"/>
