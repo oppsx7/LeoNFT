@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import JGProgressHUD
 
 private let reuseIdentifier = "NFTCollectionTableViewCell"
 
@@ -18,6 +19,9 @@ class SearchController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+//        Utils.showProgress(forView: (navigationController?.view)!)
+        Utils.showProgress()
         configureTableView()
         configureSearchController()
     }
@@ -54,7 +58,9 @@ class SearchController: UITableViewController {
                 self.collectionsVM.collectionSlugs.append(collection.slug ?? "")
             })
             DispatchQueue.main.async {
+                Utils.hideProgress()
                 self.tableView.reloadData()
+                
             }
             print("Collections count: \(self.collectionsVM.numberOfCollections())")
         }

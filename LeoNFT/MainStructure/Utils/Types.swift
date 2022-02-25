@@ -11,6 +11,10 @@ struct NFTCollectionsResponse: Codable {
     let collections: [Collection]
 }
 
+struct NFTSingleCollectionResponse: Decodable {
+    let collection: Collection
+}
+
 // MARK: - Collection
 struct Collection: Codable {
     //this is a computed property in order to be automatically excluded from CodingKeys
@@ -24,7 +28,7 @@ struct Collection: Codable {
     }
     let primary_asset_contracts: [PrimaryAssetContract]?
     let traits: Traits?
-    let stats: [String: Double]?
+    let stats: [String: Double?]?
     let banner_image_url, chat_url: String?
     let created_date: String?
     let default_to_fiat: Bool?

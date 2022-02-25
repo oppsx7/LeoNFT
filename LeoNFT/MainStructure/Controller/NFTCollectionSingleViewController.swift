@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NFTCollectionSingleViewController: UIViewController {
+final class NFTCollectionSingleViewController: UIViewController {
 
     @IBOutlet weak var collectionBannerImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -38,6 +38,7 @@ class NFTCollectionSingleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Utils.showProgress(forView: self.view)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name("ReloadData"), object: nil)
     }
     
@@ -51,6 +52,7 @@ class NFTCollectionSingleViewController: UIViewController {
         NFTService.getCollectionAssets(collectionVM.collectionSlug()) { assets in
             self.collectionVM.setCollectionAssets(assets ?? [])
             DispatchQueue.main.async {
+                Utils.hideProgress()
                 self.collectionView.reloadData()
             }
         }
@@ -64,6 +66,7 @@ class NFTCollectionSingleViewController: UIViewController {
         ownersCountLabel.text = String(collectionVM.numberOfOwners())
         floorPriceCountLabel.text = String(collectionVM.floorPrice())
         volumeTradedCountLabel.text = String(collectionVM.totalVolumeTraded())
+        configureFavoriteButton()
     }
     
     @objc func reloadData() {
@@ -74,9 +77,33 @@ class NFTCollectionSingleViewController: UIViewController {
     @IBAction func didTapBack(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
-    @IBAction func didTapFavorite(_ sender: Any) {
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    @IBAction func didTapFavorite(_ sender: Any) {
+        let allCollection = try? context.fetch(NFTCollection.fetchRequest())
+        if let currentCollection = allCollection?.first(where: {
+            $0.slug == collectionVM.collectionSlug()
+        }) {
+            // the collection is already liked and need to be removed from the context
+            context.delete(currentCollection)
+        } else {
+            // collection is not present in the context and should be added
+            let collenction = NFTCollection(context: context)
+            collenction.slug = collectionVM.collectionSlug()
+        }
+        do {
+            try context.save()
+        } catch {
+            // cant be asked for error handling rn
+        }
+        configureFavoriteButton()
+    }
+
+    private func configureFavoriteButton() {
+        let allCollection = try? context.fetch(NFTCollection.fetchRequest())
+        let allCollectionSlugs = (allCollection ?? []).map(\.slug)
+        let favoriteButtonImageName = allCollectionSlugs.contains(collectionVM.collectionSlug()) ? "like_selected" : "like_unselected"
+        favoriteButton.setImage(.init(named: favoriteButtonImageName), for: .normal)
     }
 }
 

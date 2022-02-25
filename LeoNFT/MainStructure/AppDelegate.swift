@@ -1,5 +1,6 @@
-import UIKit
+import CoreData
 import Firebase
+import UIKit
 import UserNotifications
 
 @main
@@ -10,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        setProgressProperties()
         return true
     }
 
@@ -29,5 +30,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    // MARK: CORE DATA
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "NFTCollectionModel")
+        container.loadPersistentStores(completionHandler: { _, _ in })
+        return container
+    }()
+
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            try? context.save()
+        }
+    }
+    
+    private func setProgressProperties() {
+        IHProgressHUD.set(defaultMaskType: IHProgressHUDMaskType.black)
+        IHProgressHUD.set(defaultAnimationType: .native)
+    }
 }
 

@@ -31,9 +31,11 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Utils.showProgress()
         parser.fetchNewsData { (data) in
             self.listOfArticles = data
             DispatchQueue.main.async {
+                Utils.hideProgress()
                 self.tableView.reloadData()
             }
         }
