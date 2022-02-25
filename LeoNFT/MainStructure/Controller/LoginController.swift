@@ -9,7 +9,7 @@ class LoginController: UIViewController {
     
     private var viewModel = LoginViewModel()
     weak var delegate: AuthenticationDelegate?
-    
+
     private let titleLabel: UILabel = {
        let il = UILabel()
         il.text = "Leo NFT"
@@ -20,8 +20,11 @@ class LoginController: UIViewController {
     }()
     
     private let emailTextField: UITextField = {
-        let tf = CustomTextField(placehoder: "Email")
-        return tf
+        let textField = CustomTextField(placehoder: "Email")
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .emailAddress
+        return textField
     }()
     
     private let passwordTextField: UITextField = {

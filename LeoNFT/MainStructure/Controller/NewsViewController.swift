@@ -33,9 +33,11 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Utils.showProgress()
         parser.fetchNewsData { (data) in
             self.listOfArticles = data
             DispatchQueue.main.async {
+                Utils.hideProgress()
                 self.tableView.reloadData()
             }
         }
@@ -110,7 +112,6 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.title = "News"
         navigationItem.searchController = searchController
-        
     }
     
     
