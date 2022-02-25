@@ -15,6 +15,10 @@
 		21CA079D27C7078C008317CF /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA079827C7078C008317CF /* FavoritesBuilder.swift */; };
 		21CA079E27C7078C008317CF /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA079927C7078C008317CF /* FavoritesInteractor.swift */; };
 		21CA07A027C71273008317CF /* HasLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA079F27C71273008317CF /* HasLoadingState.swift */; };
+		21DAEADE27C8ED9A0031205E /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DAEAD927C8ED9A0031205E /* UserProfilePresenter.swift */; };
+		21DAEAE027C8ED9A0031205E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DAEADB27C8ED9A0031205E /* UserProfileViewController.swift */; };
+		21DAEAE127C8ED9A0031205E /* UserProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DAEADC27C8ED9A0031205E /* UserProfileBuilder.swift */; };
+		21DAEAE227C8ED9A0031205E /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DAEADD27C8ED9A0031205E /* UserProfileInteractor.swift */; };
 		B52D044227C7FE460047F3E5 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D044127C7FE460047F3E5 /* NewsService.swift */; };
 		B52D044427C7FE890047F3E5 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D044327C7FE890047F3E5 /* NewsModel.swift */; };
 		B52D044627C7FED10047F3E5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D044527C7FED10047F3E5 /* NewsViewController.swift */; };
@@ -98,6 +102,10 @@
 		21CA079827C7078C008317CF /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
 		21CA079927C7078C008317CF /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		21CA079F27C71273008317CF /* HasLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasLoadingState.swift; sourceTree = "<group>"; };
+		21DAEAD927C8ED9A0031205E /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
+		21DAEADB27C8ED9A0031205E /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		21DAEADC27C8ED9A0031205E /* UserProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileBuilder.swift; sourceTree = "<group>"; };
+		21DAEADD27C8ED9A0031205E /* UserProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
 		B52D044127C7FE460047F3E5 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		B52D044327C7FE890047F3E5 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		B52D044527C7FED10047F3E5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +212,17 @@
 				21CA079727C7078C008317CF /* FavoritesViewController.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		21DAEAD827C8ED7C0031205E /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				21DAEADC27C8ED9A0031205E /* UserProfileBuilder.swift */,
+				21DAEAD927C8ED9A0031205E /* UserProfilePresenter.swift */,
+				21DAEADD27C8ED9A0031205E /* UserProfileInteractor.swift */,
+				21DAEADB27C8ED9A0031205E /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		D42C033F27C18FCD00896F99 /* Fonts */ = {
@@ -339,9 +358,10 @@
 				D42C037927C6EAFF00896F99 /* API */,
 				D42C037527C6EA1700896F99 /* Controller */,
 				218775D027C8217700A67CBB /* Core Data */,
-				D4CBFB3827C901C6006F6E55 /* External Libraries */,
 				D42C033F27C18FCD00896F99 /* Fonts */,
 				21CA079427C70771008317CF /* Favorites */,
+				21DAEAD827C8ED7C0031205E /* UserProfile */,
+				D4CBFB3827C901C6006F6E55 /* External Libraries */,
 				D42C037627C6EAC100896F99 /* Model */,
 				D42C037827C6EAF900896F99 /* Utils */,
 				D42C037A27C6EB1400896F99 /* View */,
@@ -498,6 +518,8 @@
 				D42C037D27C6ECEB00896F99 /* NFTCollectionViewModel.swift in Sources */,
 				D4CBFB3727C8FE9D006F6E55 /* Utils.swift in Sources */,
 				D4BB2E0D27B1CDE700DB08E7 /* CustomTextField.swift in Sources */,
+				21DAEAE227C8ED9A0031205E /* UserProfileInteractor.swift in Sources */,
+				21DAEADE27C8ED9A0031205E /* UserProfilePresenter.swift in Sources */,
 				D4CBFB4027C901E8006F6E55 /* RadialGradientLayer.swift in Sources */,
 				D4CBFB4327C901E8006F6E55 /* ProgressAnimatedView.swift in Sources */,
 				D4BB2E0E27B1CDE700DB08E7 /* UserCell.swift in Sources */,
@@ -512,11 +534,13 @@
 				D47146BC27A6DAE6002A6E27 /* ViewController.swift in Sources */,
 				B52D044A27C800800047F3E5 /* NewsViewCell.swift in Sources */,
 				21CA079A27C7078C008317CF /* FavoritesPresenter.swift in Sources */,
+				21DAEAE027C8ED9A0031205E /* UserProfileViewController.swift in Sources */,
 				D4BB2DEF27B1CD9700DB08E7 /* AuthService.swift in Sources */,
 				D4BB2DF027B1CD9700DB08E7 /* UserService.swift in Sources */,
 				D4BB2DF127B1CD9700DB08E7 /* ImageUploader.swift in Sources */,
 				21CA079D27C7078C008317CF /* FavoritesBuilder.swift in Sources */,
 				21CA07A027C71273008317CF /* HasLoadingState.swift in Sources */,
+				21DAEAE127C8ED9A0031205E /* UserProfileBuilder.swift in Sources */,
 				D4BB2E0027B1CDC800DB08E7 /* LoginController.swift in Sources */,
 				218775CE27C81EEB00A67CBB /* NFTCollection+CoreDataClass.swift in Sources */,
 				D4BB2E0127B1CDC800DB08E7 /* RegistrationController.swift in Sources */,
