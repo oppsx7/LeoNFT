@@ -4,6 +4,7 @@ import Firebase
 
 final class MainTabController: UITabBarController {
     private let favoritesBuilder = FavoritesBuilder()
+    private let userProfileBuilder = UserProfileBuilder()
     //MARK: - Lifecycle
     private var user: User? {
         didSet {
@@ -61,7 +62,8 @@ final class MainTabController: UITabBarController {
         let favoritesNavigationController = templateNavigationController(unselectedImage: UIImage(named: "like_unselected")!,
                                                                          selectedImage: UIImage(named: "like_selected")!,
                                                                          rootViewController: favoritesViewController)
-        let profileController = ProfileController(user: user)
+
+        let profileController = userProfileBuilder.build()
         let profile = templateNavigationController(unselectedImage: UIImage(named: "profile_unselected")!, selectedImage: UIImage(named: "profile_selected")!, rootViewController: profileController)
         
         viewControllers = [feed, search, favoritesNavigationController, profile]
