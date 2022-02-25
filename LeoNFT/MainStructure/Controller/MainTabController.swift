@@ -52,8 +52,6 @@ final class MainTabController: UITabBarController {
 
     func configureViewControllers(with user: User) {
         self.tabBar.backgroundColor = .white
-
-        let layout = UICollectionViewFlowLayout()
         let sb = UIStoryboard(name: "NewsStoryBoard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "NewsViewController")
         let feed = templateNavigationController(unselectedImage: UIImage(named: "home_unselected")!, selectedImage: UIImage(named: "home_selected")!, rootViewController: vc)
@@ -65,9 +63,9 @@ final class MainTabController: UITabBarController {
 
         let profileController = userProfileBuilder.build()
         let profile = templateNavigationController(unselectedImage: UIImage(named: "profile_unselected")!, selectedImage: UIImage(named: "profile_selected")!, rootViewController: profileController)
-        
+
         viewControllers = [feed, search, favoritesNavigationController, profile]
-        
+
         tabBar.tintColor = .black
     }
 
