@@ -164,7 +164,6 @@
 				D4BB2DF427B1CDC200DB08E7 /* ProfileController.swift */,
 				D4BB2DF527B1CDC200DB08E7 /* SearchController.swift */,
 				D42C037E27C6ED4E00896F99 /* NFTCollectionSingleViewController.swift */,
-				D42C038027C6EDC200896F99 /* NFTCollectionsViewController.swift */,
 				B52D044527C7FED10047F3E5 /* NewsViewController.swift */,
 				B52D044727C800330047F3E5 /* DetailsViewController.swift */,
 			);
@@ -414,7 +413,6 @@
 				D4BB2E0027B1CDC800DB08E7 /* LoginController.swift in Sources */,
 				D4BB2E0127B1CDC800DB08E7 /* RegistrationController.swift in Sources */,
 				D4BB2DF827B1CDC200DB08E7 /* NotificationController.swift in Sources */,
-				D42C038127C6EDC200896F99 /* NFTCollectionsViewController.swift in Sources */,
 				B52D044227C7FE460047F3E5 /* NewsService.swift in Sources */,
 				D4BB2DF927B1CDC200DB08E7 /* FeedController.swift in Sources */,
 				B52D044627C7FED10047F3E5 /* NewsViewController.swift in Sources */,

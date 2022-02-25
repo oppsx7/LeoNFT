@@ -129,3 +129,38 @@ extension UIView {
                bottom: view.bottomAnchor, right: view.rightAnchor)
     }
 }
+
+extension UIVisualEffectView {
+
+    func fadeInEffect(_ style:UIBlurEffect.Style = .light, withDuration duration: TimeInterval = 1.0) {
+        if #available(iOS 10.0, *) {
+            let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn) {
+                self.effect = UIBlurEffect(style: style)
+            }
+
+            animator.startAnimation()
+        }else {
+            // Fallback on earlier versions
+            UIView.animate(withDuration: duration) {
+                self.effect = UIBlurEffect(style: style)
+            }
+        }
+    }
+
+    func fadeOutEffect(withDuration duration: TimeInterval = 1.0) {
+        if #available(iOS 10.0, *) {
+            let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+                self.effect = nil
+            }
+
+            animator.startAnimation()
+            animator.fractionComplete = 1
+        }else {
+            // Fallback on earlier versions
+            UIView.animate(withDuration: duration) {
+                self.effect = nil
+            }
+        }
+    }
+
+}

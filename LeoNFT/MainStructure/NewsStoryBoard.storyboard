@@ -65,6 +65,19 @@
                                                         <action selector="shareNews:" destination="tWK-iE-r1E" eventType="touchUpInside" id="6ue-HE-1ZZ"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVG-yM-isR">
+                                                    <rect key="frame" x="12" y="405" width="114" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" image="doge" title="Ask Leo">
+                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                        <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="askLeoButton:" destination="tWK-iE-r1E" eventType="touchUpInside" id="XHO-7G-sOa"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yV7-P4-DRd" firstAttribute="leading" secondItem="GNA-Mc-xbz" secondAttribute="leading" id="K3f-kH-ElI"/>
@@ -86,10 +99,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gc3-kD-mjS">
+                                <rect key="frame" x="53" y="253" width="307" height="389"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4HL-F0-A6A">
+                                    <rect key="frame" x="0.0" y="0.0" width="307" height="389"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leo1" translatesAutoresizingMaskIntoConstraints="NO" id="xkN-me-sLW">
+                                            <rect key="frame" x="33" y="50" width="240" height="271"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG8-V8-bf0">
+                                            <rect key="frame" x="147" y="329" width="114" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Done" cornerStyle="large">
+                                                <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="doneAction:" destination="Ie4-zd-BNP" eventType="touchUpInside" id="wj4-vG-278"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XsR-uT-uhq"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NVH-wV-KWU" firstAttribute="top" secondItem="XsR-uT-uhq" secondAttribute="top" id="ScL-uH-N8f"/>
                             <constraint firstItem="NVH-wV-KWU" firstAttribute="leading" secondItem="B9q-XQ-yGJ" secondAttribute="leading" id="Wl3-6C-7FI"/>
@@ -99,6 +137,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="News" id="VJf-YZ-FIZ"/>
                     <connections>
+                        <outlet property="buttonDone" destination="xG8-V8-bf0" id="29l-dq-7PJ"/>
+                        <outlet property="leoVE" destination="gc3-kD-mjS" id="eWF-J0-SJp"/>
+                        <outlet property="leoVSImage" destination="xkN-me-sLW" id="JlN-r4-3Py"/>
                         <outlet property="tableView" destination="NVH-wV-KWU" id="ld7-d6-3wx"/>
                         <segue destination="4Xt-3e-7VN" kind="show" identifier="next" id="Cbd-5A-TOI"/>
                     </connections>
@@ -151,13 +192,27 @@
         </scene>
     </scenes>
     <resources>
+        <image name="doge" width="32" height="32"/>
+        <image name="leo1" width="768" height="1024"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="send2" width="22" height="19.5"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

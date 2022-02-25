@@ -16,7 +16,9 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var listOfArticles = [News]()
     var filteredNews = [News]()
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var leoVE: UIVisualEffectView!
+    @IBOutlet weak var leoVSImage: UIImageView!
+    @IBOutlet weak var buttonDone: UIButton!
     lazy var searchController: UISearchController = {
         let s = UISearchController(searchResultsController: nil)
         s.searchResultsUpdater = self
@@ -44,7 +46,27 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         filteredNews = listOfArticles
         configureUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(showLeo), name: NSNotification.Name(rawValue: "AskLeo"), object: nil)
     
+    
+    }
+    
+    @objc func showLeo(){
+        let  randumN = Int.random(in: 1..<6)
+        
+        switch randumN {
+        case 1: leoVSImage.image = UIImage(named: "lеo1")
+        case 2: leoVSImage.image = UIImage(named: "lеo2")
+        case 3: leoVSImage.image = UIImage(named: "lеo3")
+        case 4: leoVSImage.image = UIImage(named: "lеo4")
+        case 5: leoVSImage.image = UIImage(named: "lеo5")
+        default:
+            leoVSImage.image = UIImage(named: "leo1")
+        }
+       
+        leoVE.isHidden = false
+        leoVSImage.isHidden = false
+        
     }
     
     func filterContentForSearchText(searchText:String) {
@@ -64,6 +86,12 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
         
     }
+    
+    @IBAction func doneAction(_ sender: Any) {
+        leoVE.isHidden = true
+    }
+    
+    
     //MARK: - Actions
     @objc func handleLogout() {
         do {
