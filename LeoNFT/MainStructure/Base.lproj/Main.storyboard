@@ -324,6 +324,7 @@
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="bayc" width="1000" height="1000"/>
+        <image name="eth" width="128" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">

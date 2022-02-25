@@ -28,16 +28,19 @@ class NewsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBAction func askLeoButton(_ sender: Any) {
+        NotificationCenter.default.post(name:NSNotification.Name(rawValue: "AskLeo"), object: nil)
+    }
     @IBAction func shareNews(_ sender: Any) {
         let text = dataTxt.text
         let image = img.image
         let myWebsite = NSURL(string:url)
-        let shareAll = [text! , image! , myWebsite] as [Any]
+        let shareAll = [text! , image! , myWebsite ?? ""] as [Any]
         let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = UIApplication.shared.keyWindow?.rootViewController?.view
+        activityViewController.popoverPresentationController?.sourceView = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController?.view
         
         activityViewController.isModalInPresentation = true
-        UIApplication.shared.keyWindow?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
     
     func addShadowAndRoundedCorners() {
