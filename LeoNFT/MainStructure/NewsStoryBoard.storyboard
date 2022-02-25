@@ -39,7 +39,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xm7-qk-wLm">
                                                     <rect key="frame" x="12" y="329.5" width="402" height="68"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="ctp-FU-FEQ"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="68" id="ctp-FU-FEQ"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="391" id="fbw-yy-ewt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
@@ -99,47 +99,58 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gc3-kD-mjS">
-                                <rect key="frame" x="53" y="253" width="307" height="389"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4HL-F0-A6A">
-                                    <rect key="frame" x="0.0" y="0.0" width="307" height="389"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leo1" translatesAutoresizingMaskIntoConstraints="NO" id="xkN-me-sLW">
-                                            <rect key="frame" x="33" y="50" width="240" height="271"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG8-V8-bf0">
-                                            <rect key="frame" x="147" y="329" width="114" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Done" cornerStyle="large">
-                                                <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
-                                            </buttonConfiguration>
-                                            <connections>
-                                                <action selector="doneAction:" destination="Ie4-zd-BNP" eventType="touchUpInside" id="wj4-vG-278"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="regular"/>
-                            </visualEffectView>
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psm-nl-Yr9">
+                                <rect key="frame" x="53.5" y="258.5" width="307" height="389"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leo1" translatesAutoresizingMaskIntoConstraints="NO" id="V7v-yH-BMY">
+                                        <rect key="frame" x="33.5" y="50" width="240" height="271"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="A6Z-S8-Vfe"/>
+                                            <constraint firstAttribute="height" constant="271" id="YGY-eK-dlR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XW0-21-gaS">
+                                        <rect key="frame" x="185" y="339" width="88" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="88" id="XVr-8O-hs4"/>
+                                        </constraints>
+                                        <buttonConfiguration key="configuration" style="filled" title="Done" cornerStyle="large">
+                                            <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="doneAction:" destination="Ie4-zd-BNP" eventType="touchUpInside" id="HqF-Jh-hYv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="389" id="2bA-tT-kN8"/>
+                                    <constraint firstAttribute="width" constant="307" id="Ckw-NI-9J2"/>
+                                    <constraint firstAttribute="bottom" secondItem="XW0-21-gaS" secondAttribute="bottom" constant="19" id="KJm-rf-6fg"/>
+                                    <constraint firstItem="V7v-yH-BMY" firstAttribute="centerX" secondItem="psm-nl-Yr9" secondAttribute="centerX" id="Kdd-NY-k05"/>
+                                    <constraint firstItem="XW0-21-gaS" firstAttribute="leading" secondItem="psm-nl-Yr9" secondAttribute="leading" constant="185" id="RMz-hl-iMc"/>
+                                    <constraint firstAttribute="trailing" secondItem="XW0-21-gaS" secondAttribute="trailing" constant="34" id="ZkS-3c-JlD"/>
+                                    <constraint firstItem="V7v-yH-BMY" firstAttribute="centerY" secondItem="psm-nl-Yr9" secondAttribute="centerY" constant="-9" id="x19-G4-dH2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XsR-uT-uhq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="psm-nl-Yr9" firstAttribute="centerY" secondItem="XsR-uT-uhq" secondAttribute="centerY" id="RSh-3j-nzK"/>
                             <constraint firstItem="NVH-wV-KWU" firstAttribute="top" secondItem="XsR-uT-uhq" secondAttribute="top" id="ScL-uH-N8f"/>
                             <constraint firstItem="NVH-wV-KWU" firstAttribute="leading" secondItem="B9q-XQ-yGJ" secondAttribute="leading" id="Wl3-6C-7FI"/>
                             <constraint firstItem="NVH-wV-KWU" firstAttribute="width" secondItem="XsR-uT-uhq" secondAttribute="width" id="Y4r-3T-AxU"/>
+                            <constraint firstItem="psm-nl-Yr9" firstAttribute="centerX" secondItem="XsR-uT-uhq" secondAttribute="centerX" id="nbz-W6-aje"/>
                             <constraint firstItem="NVH-wV-KWU" firstAttribute="height" secondItem="XsR-uT-uhq" secondAttribute="height" multiplier="1.04393" id="y2h-yv-Wt0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="VJf-YZ-FIZ"/>
                     <connections>
-                        <outlet property="buttonDone" destination="xG8-V8-bf0" id="29l-dq-7PJ"/>
-                        <outlet property="leoVE" destination="gc3-kD-mjS" id="eWF-J0-SJp"/>
-                        <outlet property="leoVSImage" destination="xkN-me-sLW" id="JlN-r4-3Py"/>
+                        <outlet property="buttonDone" destination="XW0-21-gaS" id="0Ob-Ho-LTQ"/>
+                        <outlet property="leoVE" destination="psm-nl-Yr9" id="DIQ-sg-bIj"/>
+                        <outlet property="leoVSImage" destination="V7v-yH-BMY" id="9gh-tZ-KOq"/>
                         <outlet property="tableView" destination="NVH-wV-KWU" id="ld7-d6-3wx"/>
                         <segue destination="4Xt-3e-7VN" kind="show" identifier="next" id="Cbd-5A-TOI"/>
                     </connections>
@@ -193,11 +204,14 @@
     </scenes>
     <resources>
         <image name="doge" width="32" height="32"/>
-        <image name="leo1" width="768" height="1024"/>
+        <image name="leo1" width="595" height="793"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="send2" width="22" height="19.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

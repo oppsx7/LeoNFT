@@ -16,7 +16,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var listOfArticles = [News]()
     var filteredNews = [News]()
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var leoVE: UIVisualEffectView!
+    @IBOutlet weak var leoVE: UIView!
     @IBOutlet weak var leoVSImage: UIImageView!
     @IBOutlet weak var buttonDone: UIButton!
     lazy var searchController: UISearchController = {
@@ -40,6 +40,8 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             }
         }
         
+        leoVE.isHidden = true
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = UIRefreshControl()
@@ -52,21 +54,10 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     @objc func showLeo(){
-        let  randumN = Int.random(in: 1..<6)
         
-        switch randumN {
-        case 1: leoVSImage.image = UIImage(named: "lеo1")
-        case 2: leoVSImage.image = UIImage(named: "lеo2")
-        case 3: leoVSImage.image = UIImage(named: "lеo3")
-        case 4: leoVSImage.image = UIImage(named: "lеo4")
-        case 5: leoVSImage.image = UIImage(named: "lеo5")
-        default:
-            leoVSImage.image = UIImage(named: "leo1")
-        }
-       
         leoVE.isHidden = false
-        leoVSImage.isHidden = false
-        
+        let  randumN = Int.random(in: 1..<6)
+        leoVSImage.image = UIImage(named: "leo\(randumN)")
     }
     
     func filterContentForSearchText(searchText:String) {
