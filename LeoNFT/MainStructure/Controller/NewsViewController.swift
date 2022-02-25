@@ -93,7 +93,6 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.title = "News"
         navigationItem.searchController = searchController
-        
     }
     
     
