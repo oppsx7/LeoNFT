@@ -10,7 +10,6 @@ class SearchController: UITableViewController {
     private var collectionsVM: NFTCollectionsViewModel!
     private var filteredCollections = [Collection]()
     private let searchController = UISearchController(searchResultsController: nil)
-
     private var inSearchMode: Bool {
         return searchController.isActive && !searchController.searchBar.text!.isEmpty
     }
@@ -24,6 +23,7 @@ class SearchController: UITableViewController {
         Utils.showProgress()
         configureTableView()
         configureSearchController()
+        setupSearchBtn()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -102,27 +102,34 @@ extension SearchController: UISearchResultsUpdating {
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
 
         //MARK: TODO
-
-        if collectionsVM.collections.filter({ ($0.name?.lowercased().contains(searchText.lowercased()))!}).count != 0 {            filteredCollections = collectionsVM.collections.filter({ ($0.name?.lowercased().contains(searchText.lowercased()))!})
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.collectionsVM.collectionSlugs.forEach { slug in
-                    if slug.lowercased().contains(searchText.lowercased()) {
-                        NFTService.getSingleCollection(slug) { collection in
-                            if let collection = collection {
-                                self.filteredCollections.removeAll()
-                                self.filteredCollections.append(collection)
-                            }
-
-                        }
-                    }
-                }
-
-            }
-
-        }
+        filteredCollections = collectionsVM.collections.filter({ ($0.name?.lowercased().contains(searchText.lowercased()))!})
 
         print("DEBUG: Filtered collections \(filteredCollections)")
         self.tableView.reloadData()
+    }
+    
+    func setupSearchBtn() {
+        let btn = searchController.searchBar.searchTextField.leftView!
+        let tap = UITapGestureRecognizer(target: self, action: #selector(deepSearch))
+        btn.isUserInteractionEnabled = true
+        btn.addGestureRecognizer(tap)
+        searchController.searchBar.searchTextField.addSubview(btn)
+    }
+    
+    @objc func deepSearch() {
+        guard let searchText = searchController.searchBar.text?.lowercased() else { return }
+            print("DEBUG: Request to API...")
+            self.collectionsVM.collectionSlugs.forEach { slug in
+                if slug.lowercased().contains(searchText.lowercased()) {
+                    NFTService.getSingleCollection(slug) { collection in
+                        if let collection = collection {
+                            self.filteredCollections.removeAll()
+                            self.filteredCollections.append(collection)
+                            print("DEBUG: Response from API...")
+                        }
+
+                    }
+                }
+            }
     }
 }
