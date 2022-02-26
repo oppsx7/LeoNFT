@@ -43,6 +43,9 @@ class RegistrationContoller: UIViewController {
         return button
     }()
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     
     //MARK: - Lifecycle
     
@@ -50,6 +53,54 @@ class RegistrationContoller: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNotificationObservers()
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerKeyboardNotifications()
+    }
+    
+    func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     //MARK: - Actions
@@ -60,12 +111,12 @@ class RegistrationContoller: UIViewController {
     
     @objc func handleSignUp() {
         guard let email = emailTextField.text,
-        let password = passwordTextField.text,
-        let fullname = fullnameTextField.text,
-        let username = usernameTextField.text?.lowercased(),
-        let profileImage = self.profileImage else {
-            print("DEBUG: \(String(describing: emailTextField.text)), \(String(describing: passwordTextField.text)), \(String(describing: fullnameTextField.text)), \(String(describing: usernameTextField.text)), \(String(describing: profileImage))")
-            return }
+              let password = passwordTextField.text,
+              let fullname = fullnameTextField.text,
+              let username = usernameTextField.text?.lowercased(),
+              let profileImage = self.profileImage else {
+                  print("DEBUG: \(String(describing: emailTextField.text)), \(String(describing: passwordTextField.text)), \(String(describing: fullnameTextField.text)), \(String(describing: usernameTextField.text)), \(String(describing: profileImage))")
+                  return }
         
         let credentials = AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
         
@@ -105,22 +156,40 @@ class RegistrationContoller: UIViewController {
     
     func configureUI() {
         configureGradientLayer()
-        
-        view.addSubview(plusPhotoButton)
-        plusPhotoButton.centerX(inView: view)
+        setupScrollView()
+        contentView.addSubview(plusPhotoButton)
+        plusPhotoButton.centerX(inView: contentView)
         plusPhotoButton.setDimensions(height: 140, width: 140)
-        plusPhotoButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
+        plusPhotoButton.anchor(top: contentView.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
         
         let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, fullnameTextField, usernameTextField, signUpButton])
         stack.axis = .vertical
         stack.spacing = 20
         
-        view.addSubview(stack)
-        stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+        contentView.addSubview(stack)
+        stack.anchor(top: plusPhotoButton.bottomAnchor, left: contentView.leftAnchor, right: contentView.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
         
-        view.addSubview(alreadyHaveAccountButton)
-        alreadyHaveAccountButton.centerX(inView: view)
-        alreadyHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
+        contentView.addSubview(alreadyHaveAccountButton)
+        alreadyHaveAccountButton.centerX(inView: contentView)
+        alreadyHaveAccountButton.anchor(top: signUpButton.bottomAnchor, paddingTop: 200)
+    }
+    
+    func setupScrollView() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.isUserInteractionEnabled = true
+        scrollView.setDimensions(height: view.frame.height, width: view.frame.width)
+        contentView.setDimensions(height: view.frame.height, width: view.frame.width)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
     func configureNotificationObservers() {
@@ -157,3 +226,5 @@ extension RegistrationContoller: UIImagePickerControllerDelegate, UINavigationCo
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+
